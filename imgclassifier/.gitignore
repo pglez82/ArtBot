@@ -1,0 +1,8 @@
+*.jpg
+*.txt
+*.rec
+*.lst
+*.idx
+*.pyc
+models
+.Rhistory
