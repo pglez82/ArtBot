@@ -5,9 +5,9 @@ This part of the project is able to classify an image and assign it a label. It 
 3. **Train the network**. In this step we will take all the packaged pictures and we will feed them to the network. In this process the network will adjusts its weights in order to learn how to recognize this images. This step can take a long time. The script for training the network is: ```finetuneCNN.sh```
 4. **Test the trained network**. At this point we already have the network trained. The class ```img_classifier.py``` contains a class that allows you to classify a new image. Use the following code in order to test the system:
 
-```python
-from img_classifier import PictureClassifier
-c = PictureClassifier()
-probs=c.predict('images/carreno/carreno.jpg')
-print probs
-```
+...```python
+...from img_classifier import PictureClassifier
+...c = PictureClassifier()
+...probs=c.predict('images/carreno/carreno.jpg')
+...print probs
+...```
