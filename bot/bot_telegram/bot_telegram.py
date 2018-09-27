@@ -2,62 +2,55 @@ import telebot
 from chatterbot import ChatBot
 
 
-# ENLAZAR EL BOT MEDIANTE EL TOKEN 
-# (cambiar 'TOKEN' por el token del bot)
+# LINK THE BOT USING THE TOKEN
+# (change 'TOKEN' for bot's token)
 telegram_bot = telebot.TeleBot("TOKEN")
 
-# INDICAR A QUE COMANDOS RESPONDER Y CON QUE FUNCION
+# SET FUNCTIONS TO RESPONSE TO THE COMMANDS 
 @telegram_bot.message_handler(commands=['start'])
 def start_response(message):
-	telegram_bot.reply_to(message, "Bienvenido al Museo Anton")
+	telegram_bot.reply_to(message, "Welcome to the Anton Museum")
 
 @telegram_bot.message_handler(commands=['help'])
 def help_response(message):
-	telegram_bot.reply_to(message, "Estoy aqui para ayudarte")
+	telegram_bot.reply_to(message, "I am here to help you")
 
-@telegram_bot.message_handler(commands=['web_museo'])
-def give_response(message):
+@telegram_bot.message_handler(commands=['web'])
+def web_response(message):
 	telegram_bot.reply_to(message, "http://museoanton.com/")
 
 
-# CREAR UNA FUNCION PARA QUE EJECUTE EL CHATTERBOT
-def preguntar_chatterbot(message):
-    #CREAR EL CHATBOT
+# NEW FUNCTION TO CREATE THE CHATTERBOT
+def ask_chatterbot(message):
     chatbot = ChatBot("MuseoAntonBot",
-        # ALMACENAMIENTO
+        # STORAGE
         storage_adapter = "chatterbot.storage.SQLStorageAdapter",
         database = "./bot_telegram.sqlite3",
-        # APRENDIZAJE
+        # LEARNING
         trainer = "chatterbot.trainers.ChatterBotCorpusTrainer"
     )
 
-    # ENTRENARLO SOLO LA PRIMERA VEZ
-    chatbot.train("chatterbot.corpus.spanish")
+    #(ONLY THE FIRST TIME)
+    chatbot.train("chatterbot.corpus.english")
 
-    # OBTENER LA RESPUESTA DEL CHATBOT
     response = chatbot.get_response(message)
     response = str(response)
 
-    # ALMACENO LA RESPUESTA EN UN ARCHIVO
     resp_file = open("response.txt", "w")
     resp_file.write(response)
     resp_file.close()
 
 
-
-# LLAMADA AL CHATTERBOT AL ENTRAR MENSAJE DIFERENTE DE LOS COMANDOS ESTABLECIDOS
+# SEND THE RESPONSE TO TELEGRAM
 @telegram_bot.message_handler(func=lambda message:True)
-def contestar_telegram(message):
-    preguntar_chatterbot(message.text)
+def answer_telegram(message):
+    ask_chatterbot(message.text)
 
-    # LEO LA RESPUESTA DEL ARCHIVO
     response = open("response.txt", "r")
     response = response.read()
 
-    # MANDAR LA RESPUESTA AL BOT DE TELEGRAM PARA QUE CONTESTE
     telegram_bot.reply_to(message, response)
 
 
-
-# MANTIENE EL BOT ABIERTO A LA ESPERA DE MENSAJES
+# KEEP THE BOT LISTENING
 telegram_bot.polling()
