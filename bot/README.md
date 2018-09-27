@@ -34,8 +34,6 @@ CREAR UN BOT EN TELEGRAM
 
  5º Te da una enlace donde encontrarle en Telegram y un token, que usaremos para empezar a trabajar en el.
 
-	* Para conseguir el token de un bot ya creado solo tenemos que mandar /token a BotFather y nos dara a elegir el bot cuyo token queremos recuperar de entre los que hayamos creado.
-
  6º Establecer los comandos que apareceran al usuario y a los que el bot va a responder con /setcommands añadiendo una descripcion de los mismos
 
  7º Terminar de configurarlo con las opciones que te ofrece BotFather
