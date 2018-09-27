@@ -1,33 +1,28 @@
 from chatterbot import ChatBot
 
-# CREACION BOT
+# CREATE BOT
 chatbot = ChatBot(
 
     "Bot_terminal",
 
-    # ALMACENAMIENTO
     storage_adapter = "chatterbot.storage.SQLStorageAdapter",
     database = "./bot_terminal.sqlite3",
 
-    # ENTRADA Y SALIDA
     input_adapter = "chatterbot.input.TerminalAdapter",
     output_adapter = "chatterbot.output.TerminalAdapter",
 
-    # APRENDIZAJE
     trainer = "chatterbot.trainers.ChatterBotCorpusTrainer"
     )
 
-# ENTRENAMIENTO 
-#(comentar despues de la primera vez)
+# TRAIN ONLY THE FIRST TIME
 chatbot.train("chatterbot.corpus.spanish")
 
-print("Empieza la conversacion:")
+print("Start chatting:")
 
-# CONVERSACION EN BUCLE
 while True:
     try:
         bot_input = chatbot.get_response(None)
 
-    # SALIR CON Ctrl+c
+    # EXIT WITH Ctrl+c
     except (KeyboardInterrupt, EOFError, SystemExit):
         break
