@@ -31,7 +31,7 @@ def ask_chatterbot(message):
     )
 
     #(ONLY THE FIRST TIME)
-    chatbot.train("chatterbot.corpus.english")
+    # chatbot.train("chatterbot.corpus.english")
 
     response = chatbot.get_response(message)
     response = str(response)
