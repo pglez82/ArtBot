@@ -15,7 +15,7 @@ chatbot = ChatBot(
     )
 
 # TRAIN ONLY THE FIRST TIME
-chatbot.train("chatterbot.corpus.spanish")
+# chatbot.train("chatterbot.corpus.english")
 
 print("Start chatting:")
 
