@@ -4,7 +4,7 @@ from chatterbot import ChatBot
 
 # LINK THE BOT USING THE TOKEN
 # (change 'TOKEN' for bot's token)
-telegram_bot = telebot.TeleBot("TOKEN")
+telegram_bot = telebot.TeleBot("625012255:AAEMDEXQqhoYKP5cbeMjjzdO9j1rGq_7FT4")
 
 # SET FUNCTIONS TO RESPONSE TO THE COMMANDS 
 @telegram_bot.message_handler(commands=['start'])
