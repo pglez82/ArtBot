@@ -4,10 +4,8 @@ CREAR UN CHATTERBOT
  1º Instalar y configurar python y un IDE, en mi caso elegi Atom.
 
  2º Instalar pip para gestionar las librerias de python:
- 	$ sudo apt install python3-venv python3-pip
- 	$ sudo apt install python-pip
+ 	$ sudo apt install python3-venv python3-pip python-pip
 
-	(Actualizar porque aunque instala chatterbot da problemas en la ejecucion)
  	$ pip install --upgrade setuptools
 
  3º Instalar la libreria chatterbot
@@ -43,9 +41,11 @@ CREAR UN BOT EN TELEGRAM
 CONTROLAR EL BOT
 
  1º Instalar la libreria de pyTelegramBotAPI:
-	$ sudo pip install pyTelegramBotAPI
+	$ sudo pip install pyTelegramBotAPI --upgrade
 
- 2º Crear un nuevo documento (bot_telegram.py) en la misma carpeta
+	* 	https://github.com/eternnoir/pyTelegramBotAPI.git
+
+ 2º Crear un nuevo documento (bot_telegram.py)
 
  3º Crear un objeto bot pasandole el token como parametro
 
@@ -59,16 +59,34 @@ CONTROLAR EL BOT
 
 ENLAZAR CON EL CHATTERBOT
 
- 1º En bot_telegram.py creo una funcion para enviar una peticion al chatterbot. Para ello lo creo igual que en bot_terminal.py, pero sin establecer la entrada y salida de datos por el terminal y entrenandole solo en la primera ejecucion del script.
+ 1   Instalar Chatterbot:
+	$ sudo pip install chatterbot	
+	* https://github.com/gunthercox/ChatterBot.git 
 
- 2º Paso el mensaje del usuario a la funcion y obtengo la respuesta del chatterbot que guardo en una variable
+ 2 En bot_telegram.py creo una funcion para enviar una peticion al chatterbot. Para ello lo creo igual que en bot_terminal.py, pero sin establecer la entrada y salida de datos por el terminal y entrenandole solo en la primera ejecucion del script.
 
- 3º Creo un archivo de texto para guardar la respuesta temporalmente
+ 3 Paso el mensaje del usuario a la funcion y obtengo la respuesta del chatterbot que guardo en una variable
 
- 4º Leo el archivo con la respuesta y se la paso al bot de telegram para que la devuelva
+ 4 Creo un archivo de texto para guardar la respuesta temporalmente
 
- *Cuidado con cualquier simbolo extraño (caracteres especiales, tildes, ñ). En terminal no hay problema, pero en telegram rompe cuando el bot los tiene que enviar como respuesta.
+ 5 Leo el archivo con la respuesta y se la paso al bot de telegram para que la devuelva
 
+ *Cuidado con cualquier simbolo raro (caracteres especiales, tildes..). En terminal no hay problema, pero en telegram rompe cuando el bot los tiene que enviar como respuesta.
+
+
+# PERSONALIZAR ENTRENAMIENTO
+
+1 Instalar sqlite para gestionar la base de datos donde el bot guarda los datos de su aprendizaje
+    $ sudo apt-get install sqlite3 libsqlite3-dev
+
+2 Inicia la sesion con 
+    $ sqlite3
+
+3 Ejecutar los comandos de sqlite para acceder a la base de datos
+
+	* Para usar interfaz grafico se puede descargar SQLiteStudio y usarlo en local:
+		https://sqlitestudio.pl/index.rvt?act=download
+	
 
 
 

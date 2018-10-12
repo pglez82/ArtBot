@@ -1,10 +1,11 @@
+
 import telebot
 from chatterbot import ChatBot
 
-
 # LINK THE BOT USING THE TOKEN
-# (change 'TOKEN' for bot's token)
+
 telegram_bot = telebot.TeleBot("625012255:AAEMDEXQqhoYKP5cbeMjjzdO9j1rGq_7FT4")
+
 
 # SET FUNCTIONS TO RESPONSE TO THE COMMANDS 
 @telegram_bot.message_handler(commands=['start'])
@@ -25,7 +26,7 @@ def ask_chatterbot(message):
     chatbot = ChatBot("MuseoAntonBot",
         # STORAGE
         storage_adapter = "chatterbot.storage.SQLStorageAdapter",
-        database = "./bot_telegram.sqlite3",
+        database = "bot_telegram.sqlite3",
         # LEARNING
         trainer = "chatterbot.trainers.ChatterBotCorpusTrainer"
     )
@@ -52,5 +53,12 @@ def answer_telegram(message):
     telegram_bot.reply_to(message, response)
 
 
-# KEEP THE BOT LISTENING
-telegram_bot.polling()
+# KEEP THE BOT LISTENING TO TRY THE BOT NOT STOPPING
+while True:
+    try:
+        telegram_bot.polling()
+    except Exception as e:
+        logger.error(e)
+        time.sleep(15)
+        
+
