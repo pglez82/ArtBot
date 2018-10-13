@@ -1,5 +1,6 @@
 
 import telebot
+from telebot import apihelper.logger
 from chatterbot import ChatBot
 
 # LINK THE BOT USING THE TOKEN
@@ -56,9 +57,10 @@ def answer_telegram(message):
 # KEEP THE BOT LISTENING TO TRY THE BOT NOT STOPPING
 while True:
     try:
-        telegram_bot.polling()
-    except Exception as e:
-        logger.error(e)
-        time.sleep(15)
+        bot.polling(none_stop=True)
+    except Exception as err:
+        logger.error(err)
+        time.sleep(5)
+
         
 
