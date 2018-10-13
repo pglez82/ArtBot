@@ -1,10 +1,8 @@
 
-import telebot
-from telebot import apihelper.logger
+import telebot 
 from chatterbot import ChatBot
 
 # LINK THE BOT USING THE TOKEN
-
 telegram_bot = telebot.TeleBot("625012255:AAEMDEXQqhoYKP5cbeMjjzdO9j1rGq_7FT4")
 
 
@@ -57,7 +55,7 @@ def answer_telegram(message):
 # KEEP THE BOT LISTENING TO TRY THE BOT NOT STOPPING
 while True:
     try:
-        bot.polling(none_stop=True)
+        telegram_bot.polling(none_stop=True)
     except Exception as err:
         logger.error(err)
         time.sleep(5)
