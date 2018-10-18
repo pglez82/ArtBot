@@ -1,0 +1,61 @@
+﻿
+---- FIRST ERROR ----
+
+4×× Client Error
+409 Conflict
+
+The request could not be completed due to a conflict with the current state of the target resource. This code is used in situations where the user might be able to resolve the conflict and resubmit the request.
+
+The server SHOULD generate a payload that includes enough information for a user to recognize the source of the conflict.
+
+Conflicts are most likely to occur in response to a PUT request. For example, if versioning were being used and the representation being PUT included changes to a resource that conflict with those made by an earlier (third-party) request, the origin server might use a 409 response to indicate that it can't complete the request. In this case, the response representation would likely contain information useful for merging the differences based on the revision history.
+
+-----
+
+** https://github.com/eternnoir/pyTelegramBotAPI/issues/543
+
+
+---- SECOND ERROR ----
+
+2018-10-12 19:44:35,882 (util.py:65 PollingThread) ERROR - TeleBot: "ReadTimeout occurred, args=(ReadTimeoutError("HTTPSConnectionPool(host='api.telegram.org', port=443): Read timed out. (read timeout=30)",),)
+
+
+---- Tried solutions ----
+
+1º Catch the exception and poll inside an infinite loop
+
+- https://github.com/eternnoir/pyTelegramBotAPI/issues/251
+
+2º Poll with opcion none_stop and capture the exception inside of a while loop:
+- https://github.com/eternnoir/pyTelegramBotAPI/issues/401
+
+3º Upgrade 'requests' package
+
+- https://github.com/eternnoir/pyTelegramBotAPI/issues/264
+
+
+---- Other solutions ----
+
+** Recommendation to use webhook
+
+https://github.com/eternnoir/pyTelegramBotAPI/issues/241
+
+* Example -> https://github.com/eternnoir/pyTelegramBotAPI/blob/master/examples/webhook_examples/webhook_cherrypy_echo_bot.py
+
+---- More information - telepot API ----
+
+* https://github.com/nickoala/telepot/issues/53
+
+---- LOGGER ERROR ----
+
+Traceback (most recent call last):
+  File "bot_telegram.py", line 61, in <module>
+    logger.error(e)
+NameError: name 'logger' is not defined
+
+1º  In our class, we are not importing logging and we are using logger but we have not defined it. Either set logger like: 
+    logger = logging.getLogger(__name__)
+
+or use logging instead:
+
+    logging.info('Generic on file {} starts at {}'.format(file_path , time.time()))

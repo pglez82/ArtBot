@@ -1,12 +1,15 @@
-
+import logging
 import telebot 
 from chatterbot import ChatBot
 
 # LINK THE BOT USING THE TOKEN
 telegram_bot = telebot.TeleBot("625012255:AAEMDEXQqhoYKP5cbeMjjzdO9j1rGq_7FT4")
 
-
+# Uncomment the following lines to enable verbose logging
+# import logging
+# logging.basicConfig(level=logging.INFO)
 # SET FUNCTIONS TO RESPONSE TO THE COMMANDS 
+
 @telegram_bot.message_handler(commands=['start'])
 def start_response(message):
 	telegram_bot.reply_to(message, "Welcome to the Anton Museum")
@@ -59,6 +62,17 @@ while True:
     except Exception as err:
         logger.error(err)
         time.sleep(5)
-
         
 
+'''# Either set logger like: 
+   logger = logging.getLogger(__name__)
+
+# or use logging instead:
+
+    logging.info('Generic on file {} starts at {}'.format(file_path , time.time()))'''
+
+'''otra opción, meterlo en una base de datos y leerlo
+chatbot.train(
+	"./data/greetings_corpus/custom.corpus.json",
+	"./data/my_corpus/"
+	)'''
