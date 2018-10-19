@@ -3,7 +3,7 @@ import telebot
 from chatterbot import ChatBot
 
 # LINK THE BOT USING THE TOKEN
-telegram_bot = telebot.TeleBot("625012255:AAEMDEXQqhoYKP5cbeMjjzdO9j1rGq_7FT4")
+telegram_bot = telebot.TeleBot("TOKEN")
 
 # Uncomment the following lines to enable verbose logging
 # import logging
