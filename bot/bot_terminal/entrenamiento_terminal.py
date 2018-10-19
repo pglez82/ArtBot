@@ -7,7 +7,7 @@ from chatterbot import ChatBot #import the chatbot
 # logging.basicConfig(level=logging.INFO)
 
 # Create a new instance of a ChatBot
-chatbot = ChatBot('MuAnBot')
+chatbot = ChatBot('MuseoAntonBot')
 
 # Train the chat bot with a few responses
 #personal life training
