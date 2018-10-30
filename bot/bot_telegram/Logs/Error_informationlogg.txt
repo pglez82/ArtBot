@@ -53,7 +53,9 @@ Traceback (most recent call last):
     logger.error(e)
 NameError: name 'logger' is not defined
 
-1º  In our class, we are not importing logging and we are using logger but we have not defined it. Either set logger like: 
+1º import logging
+
+2º  In our class, we are not importing logging and we are using logger but we have not defined it. Either set logger like: 
     logger = logging.getLogger(__name__)
 
 or use logging instead:
