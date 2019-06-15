@@ -1,0 +1,183 @@
+<ion-header >
+  <ion-toolbar mode="ios" color="primary">
+    <ion-avatar slot="start"> <img src="/assets/logo.png"></ion-avatar><ion-title><ion-icon side="start" ios="ios-information-circle-outline" md="md-information-circle-outline"></ion-icon> INFO</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-toolbar color="primary">
+
+  <!-- Default Segment -->
+  <ion-segment [(ngModel)]="select"
+               color="tertiary">
+   
+    <ion-segment-button value="info museum">
+      <ion-label>INFO MUSEUM</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="info anton">
+      <ion-label>INFO ANTON</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+</ion-toolbar>
+
+<ion-content color="tertiary">
+
+<ng-container *ngIf="select=='info museum'">
+    <ng-container *ngIf="isLoaded; else elseTemplate">
+  <ion-card>
+    <ion-card-header>
+      <img src="/assets/anton_1.jpg" class="slide-image">
+      <ion-card-title>Anton Museum,</ion-card-title>
+      <ion-card-subtitle> the Candas sculpture center<br></ion-card-subtitle>
+
+      <ion-card-subtitle> BACKGROUND</ion-card-subtitle>
+  
+        <br><ion-label>The Antón Museum opened its doors to the public on July 13, 1989. 
+        This culminated a process that began in the 1970s when the heirs of the Candasin sculptor Antonio Rodríguez García, 
+        "Antón" (1911-1937), established negotiations with the City Council of Carreño so that he would receive in donation 
+        the work of the artist, which they had kept for more than fifteen years.</ion-label>
+
+      <ion-card>
+      <ion-item color="secondary">
+          <ion-buttons slot="start">
+              <ion-button (click)="mostrarInfo(1)">
+          <ion-icon ios="ios-arrow-dropdown" md="md-arrow-dropdown" slot="start"></ion-icon>
+          <ion-label>BUILDING</ion-label>
+        </ion-button>
+      </ion-buttons>
+        </ion-item>
+
+        <ion-item color="secondary">
+            <ion-buttons slot="start">
+                <ion-button (click)="mostrarInfo(2)">
+            <ion-icon ios="ios-arrow-dropdown" md="md-arrow-dropdown" slot="start"></ion-icon>
+          <ion-label>SCULPTURAL PARK</ion-label>  
+              </ion-button>
+        </ion-buttons>
+        </ion-item>
+      </ion-card>
+    </ion-card-header>
+  </ion-card>
+  
+  <ion-card>
+    <ion-item color="secondary" href="http://museoanton.com/">
+      <ion-icon ios="ios-link" md="md-link" slot="start"></ion-icon>
+      <ion-label>www.museoanton.com</ion-label>
+    </ion-item>
+    <ion-item color="secondary" >
+      <ion-icon ios="ios-call" md="md-call" slot="start"></ion-icon>
+      <a href="tel:+34-985-87-18-00">+34 985 87 18 00</a>
+
+    </ion-item>
+    <ion-item color="secondary" >
+        <ion-icon ios="ios-calendar" md="md-calendar" slot="start" ></ion-icon>
+        <ion-icon ios="ios-arrow-up" md="md-arrow-up" slot="end"  (click)="mostrarPop( $event )"></ion-icon>
+
+        <ion-label *ngIf="open; else close"> OPEN </ion-label>
+        <ng-template #close>
+          <ion-label> CLOSE </ion-label><ion-label> SCHEDULE</ion-label> 
+        </ng-template>
+
+
+      </ion-item>
+    <ion-item color="secondary" >
+        <ion-icon ios="logo-euro" md="logo-euro" slot="start"></ion-icon>
+        <ion-label>FREE ENTRANCE</ion-label>
+      </ion-item>
+
+  </ion-card>
+</ng-container>
+<ng-template #elseTemplate>
+              <ng-container *ngIf="select=='info museum'">
+          <ion-card>
+            <ion-card-header>
+              <img src="/assets/anton_1.jpg" class="slide-image"><br>
+              <ion-card-title><ion-skeleton-text animated style="width: 60%"></ion-skeleton-text></ion-card-title>
+              <ion-card-subtitle><ion-skeleton-text animated style="width: 45%"></ion-skeleton-text><br></ion-card-subtitle>
+              <ion-card-subtitle><ion-skeleton-text animated style="width: 30%"></ion-skeleton-text></ion-card-subtitle>
+              <br>
+              <ion-label> <ion-skeleton-text animated style="width: 95%"></ion-skeleton-text></ion-label>
+              <ion-label> <ion-skeleton-text animated style="width: 93%"></ion-skeleton-text></ion-label>
+              <ion-label> <ion-skeleton-text animated style="width: 92%"></ion-skeleton-text></ion-label>
+              <ion-label> <ion-skeleton-text animated style="width: 85%"></ion-skeleton-text></ion-label>
+              <ion-label> <ion-skeleton-text animated style="width: 88%"></ion-skeleton-text></ion-label>
+              <ion-label> <ion-skeleton-text animated style="width: 98%"></ion-skeleton-text></ion-label>
+              <ion-label> <ion-skeleton-text animated style="width: 100%"></ion-skeleton-text></ion-label>
+              <ion-label> <ion-skeleton-text animated style="width: 97%"></ion-skeleton-text></ion-label>
+              <ion-label> <ion-skeleton-text animated style="width: 55%"></ion-skeleton-text></ion-label>
+              
+              <ion-card>
+                  <ion-item color="secondary">
+                      <ion-buttons slot="start">
+                          <ion-button (click)="mostrarInfo(1)">
+                      <ion-icon ios="ios-arrow-dropdown" md="md-arrow-dropdown" slot="start"></ion-icon>
+                      <ion-label>BUILDING</ion-label>
+                    </ion-button>
+                  </ion-buttons>
+                    </ion-item>
+            
+                    <ion-item color="secondary">
+                        <ion-buttons slot="start">
+                            <ion-button (click)="mostrarInfo(2)">
+                        <ion-icon ios="ios-arrow-dropdown" md="md-arrow-dropdown" slot="start"></ion-icon>
+                      <ion-label>SCULPTURAL PARK</ion-label>  
+                          </ion-button>
+                    </ion-buttons>
+                    </ion-item>
+                  </ion-card>
+                </ion-card-header>
+              </ion-card>
+
+              <ion-card>
+                  <ion-item color="secondary" href="http://museoanton.com/">
+                    <ion-icon ios="ios-link" md="md-link" slot="start"></ion-icon>
+                    <ion-label>www.museoanton.com</ion-label>
+                  </ion-item>
+                  <ion-item color="secondary" >
+                    <ion-icon ios="ios-call" md="md-call" slot="start"></ion-icon>
+                    <ion-label>+34 985 87 18 00</ion-label>
+                  </ion-item>
+                  <ion-item color="secondary" >
+                      <ion-icon ios="ios-calendar" md="md-calendar" slot="start" ></ion-icon>
+                      <ion-icon ios="ios-arrow-up" md="md-arrow-up" slot="end"  (click)="mostrarPop( $event )"></ion-icon>
+                     <!-- Comprobar fechas --> 
+                      <ion-label>OPEN {{today | date:'short'}}</ion-label><ion-label> SCHEDULE</ion-label> 
+                    </ion-item>
+                  <ion-item color="secondary" >
+                      <ion-icon ios="logo-euro" md="logo-euro" slot="start"></ion-icon>
+                      <ion-label>FREE ENTRANCE</ion-label>
+                    </ion-item>
+              
+                </ion-card>
+        </ng-container>
+
+
+
+</ng-template>
+</ng-container>
+  
+<ng-container *ngIf="select=='info anton'">
+<ion-card>
+    <ion-card-header>
+      <img src="/assets/anton_biografia.jpg" class="slide-image">
+      <ion-card-title>Anton</ion-card-title>
+      <ion-card-subtitle>Antonio Rodríguez García, "Antón", was born in Candás on February 16, 1911 in a humble family. </ion-card-subtitle>
+      <ion-label>In his short artistic career two periods can be indicated.</ion-label>
+
+      <ion-card>
+          <ion-item color="secondary" >
+              <ion-icon ios="ios-arrow-dropdown" md="md-arrow-dropdown" slot="end"  (click)="mostrarInfo(3)"></ion-icon>
+            <ion-label>Period 1918 - 1928</ion-label>
+          </ion-item>
+          <ion-item color="secondary" >
+              <ion-icon ios="ios-arrow-dropdown" md="md-arrow-dropdown" slot="end"  (click)="mostrarInfo(4)"></ion-icon>
+              <ion-label>Period 1928 - 1937</ion-label>
+            </ion-item>    
+        </ion-card>
+
+    </ion-card-header>
+  </ion-card>
+
+</ng-container>
+
+</ion-content>

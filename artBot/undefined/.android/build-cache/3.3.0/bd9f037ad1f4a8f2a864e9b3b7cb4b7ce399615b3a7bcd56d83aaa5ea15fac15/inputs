@@ -1,0 +1,14 @@
+COMMAND=PREDEX_LIBRARY_TO_DEX_ARCHIVE
+FILE.path=C:\Users\Shaila\.gradle\caches\transforms-1\files-1.1\support-v4-24.1.1.aar\bd79da136a21717903cbd0c9c0bb55df\jars\classes.jar
+FILE.hash=4d5492dbd394108300b23815095cd9540bdea0001abb9a815f56f17782ec0071
+DX_VERSION=1.16
+JUMBO_MODE=true
+OPTIMIZE=true
+DEXER_TOOL=D8
+CACHE_KEY_VERSION=4
+MIN_SDK_VERSION=19
+IS_DEBUGGABLE=true
+EXTRA_DEPENDENCIES[0].path=C:\Users\Shaila\AppData\Local\Android\Sdk\platforms\android-28\android.jar
+EXTRA_DEPENDENCIES[0].hash=d20853d289a5161d9cf1c1268d7923076487d4fa68c970b0733e2d5a0ccfc3c5
+EXTRA_DEPENDENCIES[1].path=C:\Users\Shaila\.gradle\caches\transforms-1\files-1.1\support-v4-24.1.1.aar\bd79da136a21717903cbd0c9c0bb55df\jars\libs\internal_impl-24.1.1.jar
+EXTRA_DEPENDENCIES[1].hash=595c7507f1d676c10a008d9f0a222065e4a25333c972ac9106bacdec59e36161

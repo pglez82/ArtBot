@@ -1,0 +1,25 @@
+<ion-header>
+    <ion-toolbar mode="ios" color="primary">
+        <ion-avatar slot="start"><img src="/assets/logo.png"></ion-avatar><ion-title>{{title}}</ion-title>
+        <ion-button slot="end" size="small"
+        fill="outline" color="dark"
+        (click)="exit()"
+        >CLOSE</ion-button>
+    </ion-toolbar>
+  </ion-header>
+
+<ion-content color="tertiary">
+        <ion-card color="primary">
+      
+                <ion-card-header color="primary">
+                  <ion-card-subtitle>{{clasificator}}</ion-card-subtitle>
+                </ion-card-header>
+
+                <img src="{{image}}" class="slide-image">
+                <ion-card-content>
+                  <p>{{description}}<br></p> 
+
+                </ion-card-content>
+            
+              </ion-card>
+</ion-content>

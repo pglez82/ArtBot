@@ -1,0 +1,74 @@
+<ion-header >
+  <ion-toolbar mode="ios"  color="primary">
+    <ion-title slot="start"> {{titulo}}    </ion-title>
+    <ion-button slot="end" size="small"
+                fill="outline" color="dark"
+                (click)="exit()"
+                >CLOSE</ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="tertiary" >
+
+    <ng-container *ngIf="titulo=='THE BUILDING'">
+        <ion-card >
+            <ion-card-header color="primary">
+                <img src="/assets/museo_interior.jpg" class="slide-image"><br>
+                <ion-label>
+                    <p>The Candás Sculpture Centre or Antón Museum is situated in Candás, a small seafring village in Asturias. This museum was opened in 1989 when Anton’s 
+                    heirs established talks with the Carreño town council and donated Anton’s work. The house was known as the Estrada- Nora house.</p><br>
+                    <p>The building was built in the 18th century and was placed next to the cliffs thats surround Candas. Carreño’s town council acquired the building in 1983. The museum has a 
+                    square floor plan and it is divided into two floors and the attic. The first floor is formed by the lobby, three temporary exhibition rooms and the 
+                    warehouse. The wooden staircase is in the middle of the building and connects the two floors. The second floor is a big and diaphanous space, housing 
+                    Antón’s permanent sculpture exhibition.</p><br>
+                    <p>On the third floor we find the library, the file room and the office.The building is a civil work, a traditional Asturian house and it has a sturdy structure. 
+                      The façade is simple and does not have ornamental elements, just some windows i the different sizes and it is topped by a gabled roof.</p>
+                </ion-label>  
+              </ion-card-header>
+            </ion-card>
+      </ng-container>
+      
+      <ng-container *ngIf="titulo=='SCULPTURAL PARK'">
+          <ion-card >
+              <ion-card-header color="primary">
+
+                <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTV_hjzrW7QRtBTWbPtHxEFLnRY8_cnP0"
+                type="text/javascript"></script><br>
+                <img src="/assets/mapa.png" class="slide-image"><br>
+                  <ion-label>
+                      <p> The project to the sculptoric park was created by Carreño’s Town Council and the Regional Government. </p><br>
+                      <p> The route starts in the Antón Museum garden and flows trough the Cantabric cliffs and a small copse of trees. </p><br>
+                      <p> The sculpture collection has pieces of various artists who have all received a grant from the Antón Museum. </p> <br>                     
+                                  
+                  </ion-label>  
+                </ion-card-header>
+              </ion-card>
+      </ng-container>
+      <ng-container *ngIf="titulo=='Period 1918 - 1928'">
+     
+          <ion-label class="modales">The first, starts in 1928, when Anton built his own studio, a wooden construction in the garden of the family home, corresponds to a stage of self-taught, in which he works guided fundamentally by his undeniable sculptural instinct and innate artistic sensitivity.</ion-label>
+        <ion-list class="modales">
+          <ion-item ><strong>1918</strong> </ion-item><ion-item>He began his primary studies at the Public School of Candás. </ion-item>
+          <ion-item ><strong>1923</strong> </ion-item><ion-item>He works as an errand boy at the Casino de Candás. He begins to regularly make drawings and small figurines. </ion-item>           
+          <ion-item ><strong>1925</strong> </ion-item><ion-item>He finished his studies at the School and left his job at the Casino to work as a mason's assistant, with his father. </ion-item>
+          <ion-item ><strong>1928</strong> </ion-item><ion-item>Participates for the first time in an artistic contest with two oil paintings: "The Promise" and "Portrait of Goya", as well as a stone head.</ion-item>
+        </ion-list>
+      </ng-container>
+      <ng-container *ngIf="titulo=='Period 1928 - 1937'">
+
+          <ion-label class="modales" >The second, which ends with his death - at 26 years of age - is a phase very open to direct external influences, as befits the information and the information that he completes and receives.</ion-label>
+        <ion-list class="modales">
+          <ion-item ><strong>1930</strong> </ion-item><ion-item> With the mediation of the painter from Gijón, Evaristo Valle obtains the economic protection of Candansin canning entrepreneur, Alfonso Albo, to begin his artistic training in Madrid. During the summer she made sculptures of children and women's models in Candás. </ion-item>
+          <ion-item ><strong>1932</strong> </ion-item><ion-item> He works as an errand boy at the Casino de Candás. He begins to regularly make drawings and small figurines. </ion-item>           
+          <ion-item ><strong>1933</strong> </ion-item><ion-item> He finished his studies at the School and left his job at the Casino to work as a mason's assistant, with his father. </ion-item>
+          <ion-item ><strong>1934</strong> </ion-item><ion-item> Participates for the first time in an artistic contest with two oil paintings: "The Promise" and "Portrait of Goya", as well as a stone head.</ion-item>
+          <ion-item ><strong>1936</strong> </ion-item><ion-item> Participates in the Exhibition of Asturian Artists of Avilés, with the wood carving "Marinera" and the oil painting "Mi hermana Concha".</ion-item>
+          <ion-item ><strong>1936</strong> </ion-item><ion-item> Send the wood carving "Rapacina" to the National Exhibition of Fine Arts. He returned to Candás in summer, where in the heat of the beginning of the Civil War he was arrested for no apparent reason, managing to save the Churrigueresque altarpiece of Cristo de Candás, made by Fernando Perdones in 1734, from destruction.</ion-item>
+          <ion-item ><strong>1937</strong> </ion-item><ion-item> Dies at age 26, in Murias de Candamo, Asturias, victim of the horrors of all civil strife, disappearing in Madrid the work done in recent years.</ion-item>
+
+        </ion-list>
+      </ng-container>
+
+
+
+</ion-content>

@@ -1,0 +1,8 @@
+{
+  "name": "artBot",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular",
+  "id": "db6d5fa5"
+}

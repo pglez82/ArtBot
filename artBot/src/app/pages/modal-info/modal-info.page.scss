@@ -1,0 +1,26 @@
+hr {
+    height: 5px;
+    width: 100%;
+    background-color: #708090;
+  }
+  .modales {
+    box-sizing: border-box;
+    color: rgb(102, 102, 102);
+    display: block;
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Roboto", sans-serif;
+    font-size: 14px;
+    overflow-wrap: break-word;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+    position: relative;
+    text-rendering: optimizelegibility;
+    visibility: visible;
+    -moz-text-size-adjust: none;
+   }
+
+   #map{
+    width: 100%;
+    height: 100%;
+  }

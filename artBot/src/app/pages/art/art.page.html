@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-toolbar mode="ios" color="primary">
+      <ion-avatar slot="start"><img src="/assets/logo.png"></ion-avatar><ion-title>ART CAMERA</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="tertiary">
+  <ion-slides pager="false" class="slide-full" [options]="slideOpts" > 
+
+
+      <ion-slide *ngFor="let photo of photos">
+          <ion-card-content color="primary">
+              <img [src]="'data:image/jpg;base64,'+ photo.path | safe: 'resourceUrl'" class="slide-image">
+              <h6>{{photo.name}}</h6>
+          </ion-card-content>
+      </ion-slide></ion-slides>
+            <ion-content padding>
+                <img [src]="image" *ngIf="image" />
+            </ion-content>
+</ion-content>
+
+<ion-footer no-border>
+  <ion-toolbar transparent  color="tertiary">
+    <ion-row>
+
+  <ion-col size="6">
+    <ion-button expand="full" [disabled]="buttonDisabledClear"
+          shape="round"
+          (click)="clear(1)"> <ion-icon ios="ios-trash"  md="md-trash" ></ion-icon>CLEAR PHOTO</ion-button></ion-col>
+          <ion-col size="6">
+            <ion-button expand="full" [disabled]="buttonDisabledSend"
+                  shape="round"
+                  (click)="sendPicture()"> <ion-icon ios="ios-send"  md="md-send" ></ion-icon>SEND PHOTO</ion-button></ion-col>
+</ion-row>
+<ion-row>
+    <ion-col size="6">
+      <ion-button expand="full" [disabled]="buttonDisabledCamara"
+                  shape="round"
+                  (click)="camara()">
+        <ion-icon  ios="ios-camera" md="md-camera"slot="start"></ion-icon>ART CAMERA</ion-button></ion-col>
+    <ion-col size="6">
+  
+      <ion-button expand="full" [disabled]="buttonDisabledPicture"
+                  shape="round"
+                  (click)="libreria()">
+      <ion-icon ios="ios-photos"  md="md-photos" slot="start" ></ion-icon>GALERY</ion-button></ion-col>
+  </ion-row>
+
+  </ion-toolbar>
+</ion-footer>
