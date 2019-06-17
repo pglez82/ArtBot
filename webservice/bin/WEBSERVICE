@@ -45,6 +45,10 @@ desde otro ordenador de la red deberemos de ejecutar
 	
 	$ flask run --host=0.0.0.0
 	
-Instalaremos y usaremos simplejson:
+Si queremos dejar en segundo plano el web service, modificaremos el código del mismo:
+if __name__ == '__main__':
+    app.run(host='0.0.0.0')
+    
+Y ejecutaremos el comando:
+	$ nohup python ws.py &
 
-	$ pip3 install simplejson
