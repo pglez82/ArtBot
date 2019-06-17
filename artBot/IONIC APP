@@ -1,0 +1,103 @@
+IONIC 4, ANGULAR 7 AND CORDOVA
+
+Primero vamos a verificar que Node.js se ha instalado correctamente para esto 
+abrimos una consola cmd y ejecutamos el siguiente comando:
+	
+	$ node -v
+	
+Verificar la versión del gestor de paquetes NPM instalada, para esto usando la 
+consola abierta ejecutamos el comando:
+
+	$ npm -v
+
+Para instalarlo nos dirigimos a la página oficial de Node.js y 
+descargamos la versión más reciente para nuestro sistema operativo.
+
+	$ https://nodejs.org/en/
+
+Para instalar ionic de manera global:
+
+	$ npm install -g ionic
+	$ npm install ionic cordova -g
+	
+	$ ionic --version
+
+Para crear una nueva aplicación Ionic 4, escriba este comando en la terminal.
+	
+	$ ionic start myApp blank
+	$ ionic start myApp tabs
+	$ ionic start myApp sidemenu
+	
+	$ Install the free Ionic Appflow SDK and connect your app? (Y/n) N
+
+Entramos en la carpeta de nuestro proyecto
+	$ cd myApp 
+
+Para ejecutar la app 
+	$ ionic serve
+	
+Instalar y configurar complementos y dependencias
+
+	$ ionic cordova plugin add cordova-plugin-camera
+	$ npm install @ionic-native/camera
+	
+Para ejecutar en dispositivos Android, escribir este comando mientras el 
+dispositivo está conectado.
+
+	$ ionic cordova platform add android
+	$ ionic cordova run android
+	
+Lo que podemos crear automáticamente usando ionic generator será lo siguiente:
+
+    components 
+	$ ionic g component myComponent
+    directives
+	$ ionic g directive myDirective
+    pages	
+	$ ionic g page myPages
+    services
+	$ ionic g service api/user
+	pipes
+	$ ionic g pipe myPipe
+	$ ionic g pipe pipes/safe --flat --spec=false
+
+Si tenemos problemas con los plugins de cordova
+	$ cordova platform rm android
+	$ cordova platform add android
+	
+GENERAR Y FIRMAR LA APK
+
+Nos dirigimos desde la consola a la ruta de nuestro proyecto y utilizaremos:
+
+	$ ionic cordova build --release android		
+Generada nuestra apk, nos dirigimos desde la consola a la carpeta release, donde se encuentra nuestra apk y creamos 
+nuestra firma con el siguiente comando:
+
+	$ keytool -genkey -v -keystore ejemplo.keystore -alias alias_name -keyalg RSA -keysize 2048 -validity 10000
+
+Ejemplo.keystore: nombre de la firma
+
+alias_name: nuestro alias
+
+Tras ejecutar este comando tendremos que responder a una serie de preguntas, 
+donde la más importante es la contraseña que le pondremos a nuestra firma, que 
+utilizaremos cada vez que firmemos nuestra apk.
+
+Una vez creada, firmaremos con ella nuestra apk, para ello utilizaremos el 
+siguiente comando:
+
+jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore ejemplo.keystore 
+app-release-unsigned.apk alias_name
+
+Debemos escribir el nombre de nuestra firma, en mi caso ejemplo.keystore, el 
+nombre de la apk que se ha generado por defecto y el alias que escribimos cuando
+ generamos la firma.
+
+Una vez hecho esto, solo nos queda optimizar nuestra apk firmada y ponerle un 
+nombre:
+
+zipalign -v 4 app-release-unsigned.apk ejemplo.apk
+
+En primer lugar, escribiremos el nombre de la apk por defecto y en segundo el 
+nombre de nuestra apk ya optimizada.
+
