@@ -1,17 +1,16 @@
 IONIC 4, ANGULAR 7 AND CORDOVA
 
-Primero vamos a verificar que Node.js se ha instalado correctamente para esto 
-abrimos una consola cmd y ejecutamos el siguiente comando:
+Primero vamos a verificar que Node.js se ha instalado correctamente para esto abrimos una consola cmd y ejecutamos el 
+siguiente comando:
 	
 	$ node -v
 	
-Verificar la versión del gestor de paquetes NPM instalada, para esto usando la 
-consola abierta ejecutamos el comando:
+Verificar la versión del gestor de paquetes NPM instalada, para esto usando la consola abierta ejecutamos el comando:
 
 	$ npm -v
 
-Para instalarlo nos dirigimos a la página oficial de Node.js y 
-descargamos la versión más reciente para nuestro sistema operativo.
+Para instalarlo nos dirigimos a la página oficial de Node.js y descargamos la versión más reciente para nuestro 
+sistema operativo.
 
 	$ https://nodejs.org/en/
 
@@ -41,8 +40,7 @@ Instalar y configurar complementos y dependencias
 	$ ionic cordova plugin add cordova-plugin-camera
 	$ npm install @ionic-native/camera
 	
-Para ejecutar en dispositivos Android, escribir este comando mientras el 
-dispositivo está conectado.
+Para ejecutar en dispositivos Android, escribir este comando mientras el dispositivo está conectado.
 
 	$ ionic cordova platform add android
 	$ ionic cordova run android
@@ -70,34 +68,6 @@ GENERAR Y FIRMAR LA APK
 Nos dirigimos desde la consola a la ruta de nuestro proyecto y utilizaremos:
 
 	$ ionic cordova build --release android		
-Generada nuestra apk, nos dirigimos desde la consola a la carpeta release, donde se encuentra nuestra apk y creamos 
-nuestra firma con el siguiente comando:
 
-	$ keytool -genkey -v -keystore ejemplo.keystore -alias alias_name -keyalg RSA -keysize 2048 -validity 10000
-
-Ejemplo.keystore: nombre de la firma
-
-alias_name: nuestro alias
-
-Tras ejecutar este comando tendremos que responder a una serie de preguntas, 
-donde la más importante es la contraseña que le pondremos a nuestra firma, que 
-utilizaremos cada vez que firmemos nuestra apk.
-
-Una vez creada, firmaremos con ella nuestra apk, para ello utilizaremos el 
-siguiente comando:
-
-jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore ejemplo.keystore 
-app-release-unsigned.apk alias_name
-
-Debemos escribir el nombre de nuestra firma, en mi caso ejemplo.keystore, el 
-nombre de la apk que se ha generado por defecto y el alias que escribimos cuando
- generamos la firma.
-
-Una vez hecho esto, solo nos queda optimizar nuestra apk firmada y ponerle un 
-nombre:
-
-zipalign -v 4 app-release-unsigned.apk ejemplo.apk
-
-En primer lugar, escribiremos el nombre de la apk por defecto y en segundo el 
-nombre de nuestra apk ya optimizada.
+Posteriormente iremos a Android Studio para terminar de generar nuestra APK.
 
