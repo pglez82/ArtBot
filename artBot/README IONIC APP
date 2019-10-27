@@ -1,27 +1,26 @@
 IONIC 4, ANGULAR 7 AND CORDOVA
 
-Primero vamos a verificar que Node.js se ha instalado correctamente para esto abrimos una consola cmd y ejecutamos el 
-siguiente comando:
-	
+First we will verify that Node.js has been installed correctly for this we open an cmd console and run the
+following command:	
+
 	$ node -v
 	
-Verificar la versión del gestor de paquetes NPM instalada, para esto usando la consola abierta ejecutamos el comando:
+Verify the version of the NPM package manager installed, for this using the open console we execute the command:
 
 	$ npm -v
 
-Para instalarlo nos dirigimos a la página oficial de Node.js y descargamos la versión más reciente para nuestro 
-sistema operativo.
+To install it we go to the official website of Node.js and download the latest version for our operating system:
 
 	$ https://nodejs.org/en/
 
-Para instalar ionic de manera global:
+To install ionic globally:
 
 	$ npm install -g ionic
 	$ npm install ionic cordova -g
 	
 	$ ionic --version
 
-Para crear una nueva aplicación Ionic 4, escriba este comando en la terminal.
+To create a new Ionic 4 application, type this command in the terminal.
 	
 	$ ionic start myApp blank
 	$ ionic start myApp tabs
@@ -29,23 +28,25 @@ Para crear una nueva aplicación Ionic 4, escriba este comando en la terminal.
 	
 	$ Install the free Ionic Appflow SDK and connect your app? (Y/n) N
 
-Entramos en la carpeta de nuestro proyecto
-	$ cd myApp 
+We enter the folder of our project:
 
-Para ejecutar la app 
+	$ cd myApp 
+	
+To run the app:
+
 	$ ionic serve
 	
-Instalar y configurar complementos y dependencias
+Install and configure add-ons and dependencies:
 
 	$ ionic cordova plugin add cordova-plugin-camera
 	$ npm install @ionic-native/camera
 	
-Para ejecutar en dispositivos Android, escribir este comando mientras el dispositivo está conectado.
+To run on Android devices, type this command while the device is connected.
 
 	$ ionic cordova platform add android
 	$ ionic cordova run android
 	
-Lo que podemos crear automáticamente usando ionic generator será lo siguiente:
+What we can create automatically using ionic generator will be the following:
 
     components 
 	$ ionic g component myComponent
@@ -55,19 +56,30 @@ Lo que podemos crear automáticamente usando ionic generator será lo siguiente:
 	$ ionic g page myPages
     services
 	$ ionic g service api/user
-	pipes
+    pipes
 	$ ionic g pipe myPipe
 	$ ionic g pipe pipes/safe --flat --spec=false
 
-Si tenemos problemas con los plugins de cordova
+If we have problems with cordova plugins:
+
 	$ cordova platform rm android
 	$ cordova platform add android
 	
-GENERAR Y FIRMAR LA APK
+If we have downloaded the app from a repository and want to add android or ios we must:
 
-Nos dirigimos desde la consola a la ruta de nuestro proyecto y utilizaremos:
+Just create a "www" directory in application root.
+
+"./www" (can also do by this command- mkdir www)
+
+Now we can easily run following command:
+
+	$ cordova platform add android
+	
+GENERATE AND SIGN THE APK
+
+We go from the console to the route of our project and use:
 
 	$ ionic cordova build --release android		
-
-Posteriormente iremos a Android Studio para terminar de generar nuestra APK.
+	
+Later we will go to Android Studio to finish generating our APK.
 
