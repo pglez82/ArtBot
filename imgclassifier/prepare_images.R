@@ -8,24 +8,26 @@ dataAugmentation<-function()
 
   dimx<-224
   dimy<-224
-  
+
   #brightness, constrast, rotation
-  brightness=seq(-0.4,0.4,by=0.2)
-  contrast=c(0.8,1.2)
-  rotation=seq(-6,6,by=2)
+  brightness=c(-0.2,0,0.2)
+  contrast=c(0.8,1,1.2)
+  rotation=c(0)
 
   images <- list.files(path=ORIGINAL_IMAGES_PATH,recursive = TRUE)
+  
 
   pb=txtProgressBar(min = 0, max = length(brightness)*length(contrast)*length(rotation)*length(images), initial = 0,style=3)
-  
+
   unlink(IMAGES_PATH, recursive=TRUE)
   dir.create(IMAGES_PATH)
-  
+
   step=0
   for (image in images)
   {
+    #print(paste0(ORIGINAL_IMAGES_PATH,image))
     pic <- readImage(paste0(ORIGINAL_IMAGES_PATH,image))
-    
+
     originalDim<-dim(pic)
     if(originalDim[1]>originalDim[2])
     {
@@ -39,7 +41,7 @@ dataAugmentation<-function()
         resize(pic,h=224,output.dim=c(224,224)),
         c((224-round(224*dim(pic)[1]/dim(pic)[2]))%/%2,0))
     }
-    
+
     dir.create(paste0(IMAGES_PATH,dirname(image)))
     #We change the brightness of the image
     for (b in brightness)
@@ -52,14 +54,14 @@ dataAugmentation<-function()
         for (r in rotation)
         {
           picr <- rotate(picc,r,output.dim = c(dimx,dimy),bg.col=picc[1][1][1])
-          writeImage(picr,paste0(IMAGES_PATH,dirname(image),"/","b",b,"c",c,"r",r,".jpg"))
+          writeImage(picr,paste0(IMAGES_PATH,dirname(image),"/",tools::file_path_sans_ext(basename(image)),"_b",b,"c",c,"r",r,".jpg"))
+	  #print(paste0(dirname(image),"/","b",b,"c",c,"r",r,".jpg"))
 		      step=step+1
 		      setTxtProgressBar(pb,step)
-        }   
+        }
       }
     }
   }
 }
 
 dataAugmentation()
-
